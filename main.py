@@ -1,36 +1,34 @@
 import tkinter
 from tkinter import ttk
-import sv_ttk
+#import sv_ttk
 
-window = tkinter.Tk() # Create a window
-window.title("Choose Your Own Adventure") # Set the title of the window
-window.geometry("800x600") # Set the size of the window
-sv_ttk.use_dark_theme() # Use the dark theme
+class Window():
+    def __init__(self):
+        self.window = tkinter.Tk()
+        self.window.title("Choose Your Own Adventure")
+        self.window.geometry("800x600")
+        self.window.configure(bg="black")
+        #sv_ttk.use_dark_theme() # Use the dark theme
 
-# Create a frame
-#make the frame transparent
-# window.attributes('-alpha', 0.5)
+    def menu(self):
+        frame = tkinter.Frame(self.window, width=200, height=100, bg="black", relief="groove")
+        label = tkinter.Label(frame, text="Choose Your Own Adventure", fg="white", bg="black", borderwidth=4, relief="groove", font=("Courier", 30))
+        label.pack(side="top", padx=10, pady=10)
 
-def menu():
-    frame = tkinter.Frame(window, width=200, height=100,relief="groove")
-    label = tkinter.Label(frame, text="Choose Your Own Adventure", fg="white", borderwidth=4, relief="groove", font=("Courier", 40))
-    label.pack(side="top", padx=10, pady=10)
+        button = tkinter.Button(frame, text="Start", command=lambda: [frame.destroy(), self.startGame()], fg="white", bg="black", font=("Courier", 20))
+        button.pack(side="bottom", padx=10, pady=130)
 
-    button = tkinter.Button(frame, text="Start", command=(lambda: startGame(frame)), fg="white", font=("Courier", 20))
-    button.pack(side="bottom", padx=10, pady=130)
+        frame.pack(side="top", padx=10, pady=100)
+        
+    def startGame(self):
+        canvas = tkinter.Canvas(self.window, width=800, height=600, bg="white", highlightthickness=0)
+        oval = canvas.create_oval(0, 0, 800, 600, fill="blue", outline="black")
+        canvas.pack(side="top")
 
-    frame.pack(side="top", padx=10, pady=100)
-    window.mainloop()
-
-def startGame(frame):
-    
-    frame.destroy()
-    canvas = tkinter.Canvas(window, width=800, height=600, bg="black", highlightthickness=0)
-    oval = canvas.create_oval(0, 0, 800, 600, fill="black")
-    canvas.pack(window)
-
-
-menu()
+window = Window()
+window.menu()
+#window.startGame()
+window.window.mainloop()
 
 
 '''
