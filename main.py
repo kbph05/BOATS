@@ -8,13 +8,29 @@ window.geometry("800x600") # Set the size of the window
 sv_ttk.use_dark_theme() # Use the dark theme
 
 # Create a frame
-window.attributes('-alpha', 0.5)
-frame = tkinter.Frame(window, bg width=200, height=100, borderwidth=4, relief="groove")
-label = tkinter.Label(frame, text="Choose Your Own Adventure", bg="black", fg="white", font=("Arial", 20))
-label.pack(side="top")
-frame.pack(side="top")
+#make the frame transparent
+# window.attributes('-alpha', 0.5)
 
-window.mainloop()
+def menu():
+    frame = tkinter.Frame(window, width=200, height=100,relief="groove")
+    label = tkinter.Label(frame, text="Choose Your Own Adventure", fg="white", borderwidth=4, relief="groove", font=("Courier", 40))
+    label.pack(side="top", padx=10, pady=10)
+
+    button = tkinter.Button(frame, text="Start", command=(lambda: startGame(frame)), fg="white", font=("Courier", 20))
+    button.pack(side="bottom", padx=10, pady=130)
+
+    frame.pack(side="top", padx=10, pady=100)
+    window.mainloop()
+
+def startGame(frame):
+    
+    frame.destroy()
+    canvas = tkinter.Canvas(window, width=800, height=600, bg="black", highlightthickness=0)
+    oval = canvas.create_oval(0, 0, 800, 600, fill="black")
+    canvas.pack(window)
+
+
+menu()
 
 
 '''
