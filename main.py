@@ -1,37 +1,37 @@
 import tkinter
-from tkinter import ttk
-import sv_ttk
+# from tkinter import ttk
+#import sv_ttk
 
-window = tkinter.Tk() # Create a window
-window.title("Choose Your Own Adventure") # Set the title of the window
-window.geometry("800x600") # Set the size of the window
-sv_ttk.use_dark_theme() # Use the dark theme
+class Window():
+    def __init__(self):
+        self.window = tkinter.Tk() # Create a window
+        self.window.title("Choose Your Own Adventure") # Set the title of the window
+        self.window.geometry("1000x600")
+        self.window.configure(bg="black")
+        #make the frame transparent
+        # window.attributes('-alpha', 0.5)
 
-# Create a frame
-#make the frame transparent
-# window.attributes('-alpha', 0.5)
+    def menu(self):
+        frame = tkinter.Frame(self.window, width=200, height=100, bg="black")
 
-def menu():
-    frame = tkinter.Frame(window, width=200, height=100,relief="groove")
-    label = tkinter.Label(frame, text="Choose Your Own Adventure", fg="white", borderwidth=4, relief="groove", font=("Courier", 40))
-    label.pack(side="top", padx=10, pady=10)
+        label = tkinter.Label(frame, text="Choose Your Own Adventure", fg="white", bg="black", borderwidth=4, relief="groove", font=("Courier", 40))
+        label.pack(side="top", padx=10, pady=10)
 
-    button = tkinter.Button(frame, text="Start", command=(lambda: startGame(frame)), fg="white", font=("Courier", 20))
-    button.pack(side="bottom", padx=10, pady=130)
+        button = tkinter.Button(frame, text="Start", command=(lambda: self.startGame(frame)), fg="white", bg="grey", font=("Courier", 20))
+        button.pack(side="bottom", padx=10, pady=130)
 
-    frame.pack(side="top", padx=10, pady=100)
-    window.mainloop()
+        frame.pack(side="top", padx=10, pady=10)
 
-def startGame(frame):
-    
-    frame.destroy()
-    canvas = tkinter.Canvas(window, width=800, height=600, bg="black", highlightthickness=0)
-    oval = canvas.create_oval(0, 0, 800, 600, fill="black")
-    canvas.pack(window)
+    def startGame(self, frame):
+        frame.destroy()
+        canvas = tkinter.Canvas(self.window, width=800, height=600, bg="black")
+        oval = canvas.create_oval(0, 0, 800, 600, fill="blue")
+        canvas.pack(side="top", padx=10, pady=10)
 
 
-menu()
-
+window1 = Window()
+window1.menu()
+window1.window.mainloop()
 
 '''
 name = "Kirstin"
