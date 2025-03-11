@@ -1,0 +1,56 @@
+@startuml map
+
+class Window {
+    {static} Window Constructor
+        self.window
+        self.window.title
+        self.window.geometry
+        self.window.configure
+.. Methods ..
+    menu()
+    startGame()
+..Functions..
+}
+
+class Canvas {
+    {static} Canvas Constructor
+        self.canvas
+        self.canvas.pack
+.. Methods ..
+    drawSquare()
+    drawOval()
+    drawImage()
+    ...
+}
+
+class Game {
+    {static} Game Constructor:
+        self.game.username
+    ..Methods..
+    menu()
+    intro()
+    stage1()
+    stage2()
+    stage3()
+    endGame()
+}
+
+class Anvar {
+    {static} Anvar Constructor:
+
+..Methods..
+
+}
+
+class main {
+
+}
+
+
+
+Window <- Canvas 
+Game <- Window
+main <- Game
+Canvas <- Anvar
+Game <- Canvas
+@enduml
