@@ -9,6 +9,7 @@ class Window {
 .. Methods ..
     menu()
     startGame()
+..Functions..
 }
 
 class Canvas {
@@ -26,6 +27,7 @@ class Game {
     {static} Game Constructor:
         self.game.username
     ..Methods..
+    menu()
     intro()
     stage1()
     stage2()
@@ -34,7 +36,9 @@ class Game {
 }
 
 class Anvar {
-    {static} Game Constructor:
+    {static} Anvar Constructor:
+
+..Methods..
 
 }
 
@@ -48,4 +52,5 @@ Window <- Canvas
 Game <- Window
 main <- Game
 Canvas <- Anvar
+Game <- Canvas
 @enduml
