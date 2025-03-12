@@ -1,57 +1,73 @@
 @startuml map
 
-class Window {
-    {static} Window Constructor
-        self.window
-        self.window.title
-        self.window.geometry
-        self.window.configure
-.. Methods ..
-    makeFrame()
-    makeLabel()
-    makeButton()
-    makeInput()
-..Functions..
+class cutscenes {
+    cutscene1()
 }
 
-class Canvas {
-    {static} Canvas Constructor
-        self.canvas
-        self.canvas.pack
-.. Methods ..
-    drawSquare()
-    drawOval()
-    drawImage()
-    ...
+
+class main {
+    runGame()
 }
 
-class Game {
+class choices {
+
+}
+
+class game {
     {static} Game Constructor:
         self.game.username
-    ..Methods..
+    ..Big methods..
     menu()
     disclaimer()
-
+    startGame([call cutscene1])
     endGame()
 }
 
-class Anvar {
-    {static} Anvar Constructor:
+package UI <<frame>> {
+    class window {
+        {static} Window Constructor
+            self.window
+            self.window.title
+            self.window.geometry
+            self.window.configure
+        .. Methods ..
+        makeFrame()
+        makeLabel()
+        makeButton()
+        makeInput()
+        ..Functions..
+    }
+    class image {
+        {static} Image Constructor
+            self.canvas
+            self.canvas.pack
+        .. Methods ..
+        insertImage()
+    }
 
-..Methods..
+    class animated {
+        {static} animated Constructor:
 
-
+        ..Methods..
+        runningRight()
+        walkingRight()
+        runningLeft()
+        walkingLeft()
+        runningUp()
+        walkingUp()
+        runningDown()
+        walkingDown()
+    }
 }
 
-class main {
+main <-- choices
+main <-- game
 
-}
+game *- cutscenes
 
+cutscenes *-- animated
 
+game *-- window
+cutscenes <-- image
 
-Window <- Canvas
-Game <- Window
-main <- Game
-Canvas <- Anvar
-Game <- Canvas
 @enduml

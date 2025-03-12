@@ -41,9 +41,10 @@ class Game:
         frame.destroy() # destroy the disclaimer frame
         
         stage1Frame = self.gameWin.makeFrame(1300, 1300)
-        stage1Label = self.gameWin.makeLabel(stage1Frame, f"Hello {self.name}! You find yourself in a dark room with two doors. The first door is red, the second is white! Which door do you want to choose?", 12)
-        redDoor = self.gameWin.makeButton(stage1Frame, "Red", (lambda: self.redDoor(stage1Frame)))
-        whiteDoor = self.gameWin.makeButton(stage1Frame, "White", (lambda: self.whiteDoor(stage1Frame)))
+
+        stage1Label = self.gameWin.makeLabel(stage1Frame, "You find yourself in a dark room with two doors. The first door is red, the second is white! Which door do you want to choose?", 12)
+        self.gameWin.makeButton(stage1Frame, "Red", (lambda: self.redDoor(stage1Frame)))
+        self.gameWin.makeButton(stage1Frame, "White", (lambda: self.whiteDoor(stage1Frame)))
 
     ## RED DOOR ##
     def redDoor(self, frame):
@@ -51,9 +52,8 @@ class Game:
         frame.destroy()
 
         redDoorFrame = self.gameWin.makeFrame(1300, 1300)
-        self.gameWin.makeLabel(redDoorFrame, "You walk through the red door and are now in the future! You meet a scientist who gives you a mission of helping him save the world!\n", 20)
         
-        acceptDecline = self.gameWinmakeInput(redDoorFrame, "What do you want to do? Accept or Decline?")
+        self.gameWin.makeLabel(redDoorFrame, "You walk through the red door and are now in the future! You meet a scientist who gives you a mission of helping him save the world!\nWhat do you want to do? Accept or Decline?", 20)
         self.gameWin.makeButton(redDoorFrame, "Accept", (lambda: self.acceptMission(redDoorFrame)))
         self.gameWin.makeButton(redDoorFrame, "Decline", (lambda: self.declineMission(redDoorFrame)))
             
@@ -77,9 +77,7 @@ class Game:
         frame.destroy()
 
         whiteDoorFrame = self.gameWin.makeFrame(1300, 1300)
-        self.gameWin.makeLabel(whiteDoorFrame, "You walk through the white door and are now in the past! You meet a princess who asks you to go on a quest.\n", 20)
-        
-        acceptDecline = self.gameWinmakeInput(whiteDoorFrame, "Do you want to accept her offer and go on the quest, or do you want to stay where you are?")
+        self.gameWin.makeLabel(whiteDoorFrame, "You walk through the white door and are now in the past! You meet a princess who asks you to go on a quest.\nDo you want to accept her offer and go on the quest, or do you want to stay where you are?", 20)
         self.gameWin.makeButton(whiteDoorFrame, "Accept The Quest", (lambda: self.acceptQuest(whiteDoorFrame)))
         self.gameWin.makeButton(whiteDoorFrame, "Decline And Stay", (lambda: self.declineQuest(whiteDoorFrame)))
 
