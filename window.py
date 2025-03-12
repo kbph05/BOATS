@@ -17,19 +17,22 @@ class Window():
 
     def makeFrame(self, width, height):
         frame = tkinter.Frame(self.window, width=200, height=100, bg="black")
+        frame.pack(side="top", padx=10, pady=10)
         return frame
 
     def makeLabel(self, frame, text, fontSize):
         label = tkinter.Label(frame, text=text, fg="white", bg="black", font=("Courier", fontSize))
+        label.pack(side="top", padx=10, pady=10)
         return label
 
     def makeButton(self, frame, text, command):
         button = tkinter.Button(frame, text=text, command=command, fg="white", bg="grey", font=("Courier", 20))
+        button.pack(side="top", padx=10, pady=10)
         return button
 
     def makeInput(self, frame):
         input = tkinter.Entry(frame, fg="white", bg="grey", borderwidth=4, relief="groove", font=("Courier", 20))
+        input.pack(side="top", padx=10, pady=10)
         return input
     
-    def destroyFrame(self, frame):
-        frame.destroy()
+    # function to get values of inputs

@@ -7,8 +7,10 @@ class Window {
         self.window.geometry
         self.window.configure
 .. Methods ..
-    menu()
-    startGame()
+    makeFrame()
+    makeLabel()
+    makeButton()
+    makeInput()
 ..Functions..
 }
 
@@ -28,10 +30,8 @@ class Game {
         self.game.username
     ..Methods..
     menu()
-    intro()
-    stage1()
-    stage2()
-    stage3()
+    disclaimer()
+
     endGame()
 }
 
@@ -39,6 +39,7 @@ class Anvar {
     {static} Anvar Constructor:
 
 ..Methods..
+
 
 }
 

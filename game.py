@@ -1,21 +1,19 @@
 import window
-import tkinter
 
 class Game:
+
+    ## CONSTRUCTOR ##
     def __init__(self):
         self.name = ""
         self.gameWin = window.Window( )
     
+    ## MENU ##
     def menu(self):
      
         menuFrame = self.gameWin.makeFrame(1300, 1300)
         
         titleLabel = self.gameWin.makeLabel(menuFrame, "Choose Your Own Adventure", 20)
         startButton = self.gameWin.makeButton(menuFrame, "Start", (lambda: self.intro(menuFrame)))
-
-        startButton.pack(side="top", padx=10, pady=10)
-        titleLabel.pack(side="top", padx=10, pady=10)
-        menuFrame.pack(side="top", padx=10, pady=10)
     
     def intro(self, frame):
         
@@ -25,13 +23,9 @@ class Game:
     
         nameLabel = self.gameWin.makeLabel(introFrame, "What is your name?", 20)
         startButton = self.gameWin.makeButton(introFrame, "Start",  (lambda: self.disclaimer(introFrame)))
-        self.name = self.gameWin.makeInput(introFrame)
+        nameLabel = self.gameWin.makeInput(introFrame)
+        self.name = nameLabel.get()
 
-        nameLabel.pack(side="top", padx=10, pady=10)
-        self.name.pack(side="top", padx=10, pady=10)
-        startButton.pack(side="top", padx=10, pady=10)
-        introFrame.pack(side="top", padx=10, pady=10)
-    
     def disclaimer(self, frame):
 
         frame.destroy() # destroy the intro frame
@@ -40,44 +34,50 @@ class Game:
         
         disclaimerLabel = self.gameWin.makeLabel(disclaimerFrame, "**TEST GAME**\n This is a test game for the Choose Your Own Adventure game.\nIt is not the final game and is only for testing purposes.\nThe final game will have a proper storyline, choices, dialogs, and character animations.\n\n**CUTSCENE HERE**\n\nPress Enter to continue!", 20)
         continueButton = self.gameWin.makeButton(disclaimerFrame, "Continue", (lambda: self.stage1(disclaimerFrame)))
-        disclaimerLabel.pack(side="top", padx=10, pady=10)
-        continueButton.pack(side="top", padx=10, pady=10)
-
-        disclaimerFrame.pack(side="top", padx=10, pady=10)
-            
+        
+    ## FIRST STAGE ##     
     def stage1(self, frame):
 
         frame.destroy() # destroy the disclaimer frame
         
         stage1Frame = self.gameWin.makeFrame(1300, 1300)
-        stage1Label = self.gameWin.makeLabel(stage1Frame, f"Hello {self.name}! You find yourself in a dark room with two doors. The first door is red, the second is white! Which door do you want to choose?", 10)
+        stage1Label = self.gameWin.makeLabel(stage1Frame, f"Hello {self.name}! You find yourself in a dark room with two doors. The first door is red, the second is white! Which door do you want to choose?", 12)
         redDoor = self.gameWin.makeButton(stage1Frame, "Red", (lambda: self.redDoor(stage1Frame)))
         whiteDoor = self.gameWin.makeButton(stage1Frame, "White", (lambda: self.whiteDoor(stage1Frame)))
-        
-        stage1Label.pack(side="top", padx=10, pady=10)
-        redDoor.pack(side="top", padx=10, pady=10)
-        whiteDoor.pack(side="top", padx=10, pady=10)
-        stage1Frame.pack(side="top", padx=10, pady=10)
 
-
-
+    ## RED DOOR ##
     def redDoor(self, frame):
 
         frame.destroy()
 
         redDoorFrame = self.gameWin.makeFrame(1300, 1300)
-        self.gameWin.makeLabel("Great, you walk through the red door and are now in the future! You meet a scientist who gives you a mission of helping him save the world!", 10, 10)
-        choice_one = input("What do you want to do? 1=Accept or 2=Decline. ")
-        if choice_one == "1":
-                self.window.makeLabel("""_____________SUCCESS_____________\nYou helped the scientist save the world! In gratitude, the scientist builds a time machine and sends you home!""", 10, 10)
-    
-    
-    # def whiteDoor(self):
-    
-    # def endGame(self):
+        self.gameWin.makeLabel(redDoorFrame, "You walk through the red door and are now in the future! You meet a scientist who gives you a mission of helping him save the world!\n", 20)
+        
+        acceptDecline = self.gameWinmakeInput(redDoorFrame, "What do you want to do? Accept or Decline?")
+        self.gameWin.makeButton(redDoorFrame, "Accept", (lambda: self.accept(redDoorFrame)))
+        self.gameWin.makeButton(redDoorFrame, "Decline", (lambda: self.decline(redDoorFrame)))
+            
+    def accept(self, frame):
 
-# '''
+        frame.destroy()
 
+        acceptFrame = self.gameWin.makeFrame(1300, 1300)
+        self.gameWin.makeLabel(acceptFrame, "SUCCESS! You helped the scientist save the world! In gratitude, the scientist builds a time machine and sends you home!", 20)
+
+    def decline(self, frame):
+
+        frame.destroy()
+
+        declineFrame = self.gameWin.makeFrame(1300, 1300)
+        self.gameWin.makeLabel(declineFrame, "Too bad! You declined the scientists offer and now you are stuck in the future!", 20)
+
+    ## WHITE DOOR ##
+    #def whiteDoor(self):
+    
+    
+
+
+# def endGame(self):
 #     print(f"Welcome to {name}'s Choose Your Own Adventure game! As you follow the story, you will be presented with choices that decide your fate. Take care and choose wisely (hint!). Let's begin!")
 #     print("You find yourself in a dark room with two doors. The first door is red, the second is white!")
 
@@ -149,6 +149,3 @@ class Game:
 #         else:
 #             print("""___________GAME OVER____________
 #     Well, I guess your story ends here!""")
-
-
-# '''

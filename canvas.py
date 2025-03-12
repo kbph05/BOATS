@@ -12,3 +12,6 @@ class Canvas():
     def drawRectangle(self):
         rectangle = self.canvas.create_rectangle(0, 0, 800, 600, fill="red")
         
+    def importImage(self, imageName):
+        image = PhotoImage(file=imageName)
+        
