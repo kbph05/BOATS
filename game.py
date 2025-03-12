@@ -72,7 +72,10 @@ class Game:
         self.gameWin.makeLabel(declineFrame, "Too bad! You declined the scientists offer and now you are stuck in the future!", 20)
 
     ## WHITE DOOR ##
-    #def whiteDoor(self):
+    def whiteDoor(self):
+
+        
+
     
     
 

@@ -49,7 +49,7 @@ class main {
 
 
 
-Window <- Canvas 
+Window <- Canvas
 Game <- Window
 main <- Game
 Canvas <- Anvar
