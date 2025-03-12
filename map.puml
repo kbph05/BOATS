@@ -1,17 +1,36 @@
 @startuml map
+title BOATS 
+
 
 class cutscenes {
     cutscene1()
 }
 
+note right of cutscenes
+scenes where user does not make 
+choices; only cutscenes play and
+user clicks along
+end note
+
 
 class main {
-    runGame()
+
 }
+note right of main
+new game object when game starts
+(save feature will be called here)
+*have exception handling here?
+end note
 
 class choices {
 
 }
+note left of choices
+where the choices of the 
+user will go, and each 
+choice will take them to a 
+new method
+end note
 
 class game {
     {static} Game Constructor:
@@ -22,6 +41,15 @@ class game {
     startGame([call cutscene1])
     endGame()
 }
+note right of game
+game calls 5 big sections of the game:
+* main menu
+* settings
+* disclaimer (game in developpment) 
+  WILL BE REMOVED
+* start the game (eventually save feature?)
+* end game (back to main (eventually save game))
+end note
 
 package UI <<frame>> {
     class window {
@@ -37,13 +65,26 @@ package UI <<frame>> {
         makeInput()
         ..Functions..
     }
+
+    note right of window 
+    for creating frames, 
+    buttons, inputs, 
+    labels
+    end note
+
     class image {
+        
         {static} Image Constructor
             self.canvas
             self.canvas.pack
         .. Methods ..
         insertImage()
     }
+    note left of image
+    for importing images for 
+    characters, alphabet, 
+    numbers, buttons, etc.
+    end note
 
     class animated {
         {static} animated Constructor:
@@ -58,16 +99,21 @@ package UI <<frame>> {
         runningDown()
         walkingDown()
     }
+    note right of animated
+    loops that loop some 
+    animations of characters, 
+    animals, objects, etc.
+    end note
 }
+main <-- game 
 
-main <-- choices
-main <-- game
-
-game *- cutscenes
+game <-- cutscenes 
 
 cutscenes *-- animated
+game <-- choices 
+game *- window
 
-game *-- window
-cutscenes <-- image
+window <-- image
+animated <-- image
 
 @enduml

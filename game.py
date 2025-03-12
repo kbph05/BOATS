@@ -42,7 +42,7 @@ class Game:
         
         stage1Frame = self.gameWin.makeFrame(1300, 1300)
 
-        stage1Label = self.gameWin.makeLabel(stage1Frame, "You find yourself in a dark room with two doors. The first door is red, the second is white! Which door do you want to choose?", 12)
+        self.gameWin.makeLabel(stage1Frame, "You find yourself in a dark room with two doors. The first door is red, the second is white! Which door do you want to choose?", 12)
         self.gameWin.makeButton(stage1Frame, "Red", (lambda: self.redDoor(stage1Frame)))
         self.gameWin.makeButton(stage1Frame, "White", (lambda: self.whiteDoor(stage1Frame)))
 
@@ -69,6 +69,7 @@ class Game:
         frame.destroy()
 
         declineFrame = self.gameWin.makeFrame(1300, 1300)
+
         self.gameWin.makeLabel(declineFrame, "Too bad! You declined the scientists offer and now you are stuck in the future!", 20)
 
     ## WHITE DOOR ##
@@ -86,8 +87,8 @@ class Game:
         frame.destroy()
 
         acceptQuest = self.gameWin.makeFrame(1300,1300)
-        self.gameWin.makeLabel("QUEST ACCEPTED")
-        self.gameWin.makeButton("click")
+        self.gameWin.makeLabel(acceptQuest, "QUEST ACCEPTED")
+        self.gameWin.makeButton(acceptQuest, "click")
     
     def declineQuest(self, frame):
 
