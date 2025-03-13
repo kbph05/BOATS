@@ -1,5 +1,4 @@
 import tkinter
-from PIL import Image, ImageTk
 
 class Window():
     def __init__(self):

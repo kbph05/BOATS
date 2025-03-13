@@ -1,7 +1,6 @@
 import window
 import image #, cutscenes, choices
-import tkinter
-from tkinter import PhotoImage
+
 class Game:
 
     ## CONSTRUCTOR ##
@@ -12,11 +11,10 @@ class Game:
     ## MENU ##
     def menu(self):
         menuFrame = self.gameWin.makeFrame(1300, 1300)
+        testImage = image.Image("test.png")
+        
+        testImage = testImage.drawImage(menuFrame, testImage.image)
 
-        image = PhotoImage(file="test.png")
-        drawing = self.gameWin.drawImage(self.gameWin.window, image)
-
-        # testImage = self.gameWin.drawImage(menuFrame, "test.png", 1300, 1300)
         titleLabel = self.gameWin.makeLabel(menuFrame, "Choose Your Own Adventure", 20)
         startButton = self.gameWin.makeButton(menuFrame, "Start", (lambda: self.intro(menuFrame)))
     
