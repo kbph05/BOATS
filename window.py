@@ -27,9 +27,10 @@ class Window():
         label.pack(side="top", padx=10, pady=10)
         return label
 
-    def makeButton(self, frame, text, command):
-        button = tkinter.Button(frame, text=text, command=command, fg="black", bg="grey", font=("Courier", 20))
-        button.pack(side="top", padx=10, pady=10)
+    def makeButton(self, frame, image, command):
+        button = tkinter.Button(frame, command=command, image=image)
+        button.pack()
+        button.image = image
         return button
 
     def makeInput(self, frame):

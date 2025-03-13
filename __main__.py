@@ -1,5 +1,7 @@
 import game
-import window
+import window 
+import image
+import tkinter
 
 # MAIN CLASS
 def importFiles():
@@ -19,7 +21,8 @@ def importFiles():
 
 def runGame():
     newGame = game.Game() # BRUH WHY THE-oh i get it now
-    newGame.menu()
+    frame = newGame.gameWin.makeFrame(1300, 1300)
+    newGame.menu(frame)
     newGame.gameWin.window.mainloop()
 
 importFiles()

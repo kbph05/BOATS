@@ -1,4 +1,4 @@
-import image
+import image as image
 
 class Animated():
     def __init__(self):

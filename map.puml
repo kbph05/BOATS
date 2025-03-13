@@ -2,15 +2,15 @@
 title BOATS 
 
 
-class cutscenes {
-    cutscene1()
-}
+' class cutscenes {
+'     cutscene1()
+' }
 
-note right of cutscenes
-scenes where user does not make 
-choices; only cutscenes play and
-user clicks along
-end note
+' note right of cutscenes
+' scenes where user does not make 
+' choices; only cutscenes play and
+' user clicks along
+' end note
 
 
 class main {
@@ -22,15 +22,15 @@ new game object when game starts
 *have exception handling here?
 end note
 
-class choices {
+' class choices {
 
-}
-note left of choices
-where the choices of the 
-user will go, and each 
-choice will take them to a 
-new method
-end note
+' }
+' note left of choices
+' where the choices of the 
+' user will go, and each 
+' choice will take them to a 
+' new method
+' end note
 
 class game {
     {static} Game Constructor:
@@ -72,48 +72,47 @@ package UI <<frame>> {
     labels
     end note
 
-    ' class image {
-    '     {static} Image Constructor
-    '         self.canvas
-    '         self.canvas.pack
-    '     .. Methods ..
-    '     insertImage()
-    '     alphabet()
-    '     numbers()
-    ' }
-    ' note left of image
-    ' for importing images for 
-    ' characters, alphabet, 
-    ' numbers, buttons, etc.
-    ' end note
-
-    class animated {
-        {static} Animated Constructor:
-        
-        ..Methods..
-        runningRight()
-        walkingRight()
-        runningLeft()
-        walkingLeft()
-        runningUp()
-        walkingUp()
-        runningDown()
-        walkingDown()
+    class image {
+        {static} Image Constructor
+            self.canvas
+            self.canvas.pack
+        .. Methods ..
+        insertImage()
+        alphabet()
+        numbers()
     }
-    note right of animated
-    loops that loop some 
-    animations of characters, 
-    animals, objects, etc.
+    note left of image
+    for importing images for 
+    characters, alphabet, 
+    numbers, buttons, etc.
     end note
+
+    ' class animated {
+    '     {static} Animated Constructor:
+        
+    '     ..Methods..
+    '     runningRight()
+    '     walkingRight()
+    '     runningLeft()
+    '     walkingLeft()
+    '     runningUp()
+    '     walkingUp()
+    '     runningDown()
+    '     walkingDown()
+    ' }
+    ' note right of animated
+    ' loops that loop some 
+    ' animations of characters, 
+    ' animals, objects, etc.
+    ' end note
 }
 main --> game 
-main --> imports
-game --> cutscenes 
+' game --> cutscenes 
 
 ' cutscenes --> image
-' animated --> image
-game --> choices 
-game --* window
+game --> image
+' game --> choices 
+main --* window
 
 
 @enduml
