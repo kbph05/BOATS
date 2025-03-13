@@ -1,4 +1,4 @@
-# BOATS
+<!--# BOATS
 
 A woman begins her freshman year of university. Mostly everything has been perfect so far; she graduated highschool with strong grades, scholarships, got into her dream university in engineering (well she wanted computer science, but she could transfer later), has multiple friends to support her, a caring boyfriend....nothing could be better.
 

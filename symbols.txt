@@ -1,0 +1,13 @@
+!: exclamation.png
+@ : at.png
+#: hashtag.png
+$: dollar.png
+%: percent.png
+?: question.png
+&: and.png
+*: asterik.png
+(: openingBracket.png
+): closingBracket.png
+-: hiphen.png
++: plus.png
+/: forwardSlash.png

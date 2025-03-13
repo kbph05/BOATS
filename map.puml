@@ -72,23 +72,24 @@ package UI <<frame>> {
     labels
     end note
 
-    class image {
-        
-        {static} Image Constructor
-            self.canvas
-            self.canvas.pack
-        .. Methods ..
-        insertImage()
-    }
-    note left of image
-    for importing images for 
-    characters, alphabet, 
-    numbers, buttons, etc.
-    end note
+    ' class image {
+    '     {static} Image Constructor
+    '         self.canvas
+    '         self.canvas.pack
+    '     .. Methods ..
+    '     insertImage()
+    '     alphabet()
+    '     numbers()
+    ' }
+    ' note left of image
+    ' for importing images for 
+    ' characters, alphabet, 
+    ' numbers, buttons, etc.
+    ' end note
 
     class animated {
-        {static} animated Constructor:
-
+        {static} Animated Constructor:
+        
         ..Methods..
         runningRight()
         walkingRight()
@@ -105,15 +106,14 @@ package UI <<frame>> {
     animals, objects, etc.
     end note
 }
-main <-- game 
+main --> game 
+main --> imports
+game --> cutscenes 
 
-game <-- cutscenes 
+' cutscenes --> image
+' animated --> image
+game --> choices 
+game --* window
 
-cutscenes *-- animated
-game <-- choices 
-game *- window
-
-window <-- image
-animated <-- image
 
 @enduml
