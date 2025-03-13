@@ -59,14 +59,14 @@ package UI <<frame>> {
             self.window.geometry
             self.window.configure
         .. Methods ..
-        makeFrame()
-        makeLabel()
-        makeButton()
-        makeInput()
-        ..Functions..
+        makeFrame(width, height)
+        makeLabel(frame, text, fontSize)
+        makeButton(frame, image, command)
+        makeInput(frame)
+        drawImage(frame, image)
     }
 
-    note right of window 
+    note bottom of window 
     for creating frames, 
     buttons, inputs, 
     labels
@@ -74,14 +74,13 @@ package UI <<frame>> {
 
     class image {
         {static} Image Constructor
-            self.canvas
-            self.canvas.pack
+            self.image
         .. Methods ..
-        insertImage()
-        alphabet()
-        numbers()
+        insertImage(frame, image)
+        ' alphabet()
+        ' numbers()
     }
-    note left of image
+    note bottom of image
     for importing images for 
     characters, alphabet, 
     numbers, buttons, etc.
@@ -107,12 +106,8 @@ package UI <<frame>> {
     ' end note
 }
 main --> game 
-' game --> cutscenes 
-
-' cutscenes --> image
 game --> image
-' game --> choices 
-main --* window
+game --> window
 
 
 @enduml

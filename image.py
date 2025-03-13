@@ -12,9 +12,5 @@ class Image:
         label.pack()
         return label
     
-    def resizeImage(self, width, height):
-        self.image = self.image.zoom(width, height)
-        return self.image
-    
 
         
