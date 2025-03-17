@@ -22,9 +22,4 @@ class Image:
     # RESIZING
     def resize(self, width, height):
         self.image = self.image.zoom(width, height)
-        return self
-
-    # CROPPING
-    def crop(self, x1, y1, x2, y2):
-        self.image = self.image.crop((x1, y1, x2, y2))
-        return self
+        return self.image

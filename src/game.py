@@ -5,8 +5,13 @@ class Game:
 
     ## CONSTRUCTOR ##
     def __init__(self):
+        self.alphabet = [None] * 25
+        self.numbers  = [None] * 9
+        self.symbols  = [None] * 13
         self.name = ""
         self.gameWin = window.Window()
+        # bring the imported alphabet here:
+        self.alphabet = self.importAlphabet(self.alphabet)
     
     ## MENU ##
     def menu(self, frame):
@@ -14,27 +19,41 @@ class Game:
         frame.destroy() # destroy the disclaimer frame
 
         titleFrame = self.gameWin.makeFrame(1300, 1300)
-        testImage = image.Image('a.PNG')
+        letter1 = image.Image('a.png')
+        letter2 = image.Image('c.png')
 
-        testImage.drawImage(titleFrame, testImage.image, "pink", "left")
-        testImage.drawImage(titleFrame, testImage.image, "pink", "left")
-        testImage.drawImage(titleFrame, testImage.image, "pink", "left")
-        testImage.drawImage(titleFrame, testImage.image, "pink", "left") 
+        letter1.drawImage(titleFrame, letter1.image, "pink", "left")
+        letter2.drawImage(titleFrame, letter2.image, "pink", "left")
+        letter1.drawImage(titleFrame, letter1.image, "pink", "left")
+        letter2.drawImage(titleFrame, letter2.image, "pink", "left") 
 
         menuFrame = self.gameWin.makeFrame(1300, 1300)
-        startButton = self.gameWin.makeButton(menuFrame, testImage.image, "white", (lambda: self.intro(menuFrame)))
-    
-    # def intro(self, frame):
+        startButton = self.gameWin.makeButton(menuFrame, letter2.image, "white", (lambda: self.intro(menuFrame)))
+        settingsButton = self.gameWin.makeButton(menuFrame, letter1.image, "white", (lambda: self.settings(menuFrame)))
+
+    def settings(self, frame):
         
-    #     frame.destroy() # destroy the menu frame
+        frame.destroy() # destroy the menu frame
 
-    #     introFrame = self.gameWin.makeFrame(1300, 1000)
-    #     testImage = image.Image('a.PNG')
+        settingsFrame = self.gameWin.makeFrame(1300, 1300)
+        letter1 = image.Image('a.png')
 
-    #     nameLabel = self.gameWin.makeLabel(introFrame, "What is your name?", "pink", "top", 20)
-    #     startButton = self.gameWin.makeButton(introFrame, testImage.image, "white", (lambda: self.disclaimer(introFrame)))
-    #     nameLabel = self.gameWin.makeInput(introFrame)
-    #     self.name = nameLabel.get()
+        audioButton = self.gameWin.makeButton(settingsFrame, letter1.image, "white", (lambda: self.settings(settingsFrame))) # command will be different
+        musicButton = self.gameWin.makeButton(settingsFrame, letter1.image, "white", (lambda: self.settings(settingsFrame))) # command will be different
+        backButton =  self.gameWin.makeButton(settingsFrame, letter1.image, "white", (lambda: self.menu(settingsFrame)))
+    
+
+    def intro(self, frame):
+        
+        frame.destroy() # destroy the menu frame
+
+        introFrame = self.gameWin.makeFrame(1300, 1000)
+        testImage = image.Image('a.png')
+
+        nameLabel = self.gameWin.makeLabel(introFrame, "What is your name?", "pink", "top", 20)
+        startButton = self.gameWin.makeButton(introFrame, testImage.image, "white", (lambda: self.disclaimer(introFrame)))
+        nameLabel = self.gameWin.makeInput(introFrame)
+        self.name = nameLabel.get()
 
     # def disclaimer(self, frame):
 
@@ -48,3 +67,8 @@ class Game:
     #     "animations.\n\n**CUTSCENE HERE**\n\nPress Enter to continue!", "pink", "top", 20)
     #     continueButton = self.gameWin.makeButton(disclaimerFrame, testImage.image , "white", (lambda: self.stage1(disclaimerFrame)))
     
+    def importAlphabet(self, alphabet):
+        alphabetFont = ["a.png", "c.png", "k.png"]
+        for i, letter in enumerate(alphabetFont):
+            alphabet[i] = image.Image(alphabetFont[i])
+        return alphabet

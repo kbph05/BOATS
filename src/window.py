@@ -4,8 +4,8 @@ class Window():
     def __init__(self):
         # Window
         self.window = tkinter.Tk() # Create a window
-        self.window.title("Choose Your Own Adventure") # Set the title of the window
-        self.window.geometry("1500x1000")
+        self.window.title("BOATS") # Set the title of the window
+        self.window.geometry("1000x700")
         self.window.configure(bg="pink")
 
         # Image

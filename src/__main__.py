@@ -2,10 +2,7 @@ import game
 import image
 import tkinter
 
-def importAlphabet():
-    alphabetFont = ["a.PNG", "k.png", "test.png"]
-    alphabet = image.Image(alphabetFont[0])
-    return alphabet
+# Global variables
 
 # def importNumbers():
 #     numbersFont = ["0.png", "1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png", "8.png", "9.png"]
@@ -32,7 +29,7 @@ def runGame():
 
 
 newGame = game.Game()
-alphabet = importAlphabet()
+# alphabet = importAlphabet()
 # numbers = importNumbers()
 # symbols = importSymbols()
 # map = importMap()
