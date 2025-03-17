@@ -7,6 +7,7 @@ class Window():
         self.window.title("BOATS") # Set the title of the window
         self.window.geometry("1000x700")
         self.window.configure(bg="pink")
+        # self.frames = [None]
 
         # Image
         # self.alphabet = self.importAlphabet()
@@ -37,6 +38,10 @@ class Window():
         input = tkinter.Entry(frame, fg="black", bg="grey", borderwidth=4, relief="groove", font=("Arial", 20))
         input.pack(side="top", padx=10, pady=10)
         return input
+    
+    def destroyFrames(self, frames):
+        for i,frame in enumerate(frames):
+            frame.destroy()
 
   
 

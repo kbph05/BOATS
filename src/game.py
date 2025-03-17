@@ -18,6 +18,8 @@ class Game:
 
         frame.destroy() # destroy the disclaimer frame
 
+        # frame array so that all frames can be destroyed
+
         titleFrame = self.gameWin.makeFrame(1300, 1300)
         letter1 = image.Image('a.png')
         letter2 = image.Image('c.png')
