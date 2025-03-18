@@ -53,7 +53,7 @@ class Game:
         testImage = image.Image('a.png')
 
         nameLabel = self.gameWin.makeLabel(introFrame, "What is your name?", "pink", "top", 20)
-        startButton = self.gameWin.makeButton(introFrame, testImage.image, "white", (lambda: self.disclaimer(introFrame)))
+        # startButton = self.gameWin.makeButton(introFrame, testImage.image, "white", (lambda: self.disclaimer(introFrame)))
         nameLabel = self.gameWin.makeInput(introFrame)
         self.name = nameLabel.get()
 
@@ -70,7 +70,7 @@ class Game:
     #     continueButton = self.gameWin.makeButton(disclaimerFrame, testImage.image , "white", (lambda: self.stage1(disclaimerFrame)))
     
     def importAlphabet(self, alphabet):
-        alphabetFont = ["a.png", "c.png", "k.png"]
+        alphabetFont = ["a.png", "c.png"]
         for i, letter in enumerate(alphabetFont):
             alphabet[i] = image.Image(alphabetFont[i])
         return alphabet
