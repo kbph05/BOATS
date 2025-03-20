@@ -8,8 +8,7 @@ class Image:
     def __init__(self, imageName):
         # Get the absolute path to the project directory
         imagePath = os.path.join(os.getcwd(), "characters", imageName)
-        self.image = PhotoImage(file=imagePath)  
-
+        self.image = PhotoImage(file=imagePath)
     # METHODS:
 
     # DRAWING

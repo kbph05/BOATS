@@ -7,7 +7,7 @@ class Window():
         self.window.title("BOATS") # Set the title of the window
         self.window.geometry("1000x700")
         self.window.configure(bg="pink")
-        # self.frames = [None]
+        self.frames = [None]
 
         # Image
         # self.alphabet = self.importAlphabet()
@@ -21,6 +21,7 @@ class Window():
     def makeFrame(self, width, height):
         frame = tkinter.Frame(self.window, width=200, height=100, bg="pink")
         frame.pack(side="top", padx=10, pady=10)
+        self.frames.append(frame)
         return frame
 
     def makeLabel(self, frame, text, background, side, fontSize):
@@ -39,12 +40,14 @@ class Window():
         input.pack(side="top", padx=10, pady=10)
         return input
     
-    def destroyFrames(self, frames):
-        for i,frame in enumerate(frames):
-            frame.destroy()
+    def destroyFrames(self):
+        for frame in self.frames:
+            if frame is not None:
+                frame.destroy()
+        self.frames = []
 
   
 
     
-
+ 
     # function to get values of inputs

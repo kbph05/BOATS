@@ -16,7 +16,7 @@ class Game:
     ## MENU ##
     def menu(self, frame):
 
-        frame.destroy() # destroy the disclaimer frame
+        self.gameWin.destroyFrames() # destroy the disclaimer frame
 
         # frame array so that all frames can be destroyed
 
@@ -35,7 +35,7 @@ class Game:
 
     def settings(self, frame):
         
-        frame.destroy() # destroy the menu frame
+        self.gameWin.destroyFrames() # destroy the menu frame
 
         settingsFrame = self.gameWin.makeFrame(1300, 1300)
         letter1 = image.Image('a.png')
@@ -47,7 +47,7 @@ class Game:
 
     def intro(self, frame):
         
-        frame.destroy() # destroy the menu frame
+        self.gameWin.destroyFrames() # destroy the menu frame
 
         introFrame = self.gameWin.makeFrame(1300, 1000)
         testImage = image.Image('a.png')
@@ -55,6 +55,7 @@ class Game:
         nameLabel = self.gameWin.makeLabel(introFrame, "What is your name?", "pink", "top", 20)
         # startButton = self.gameWin.makeButton(introFrame, testImage.image, "white", (lambda: self.disclaimer(introFrame)))
         nameLabel = self.gameWin.makeInput(introFrame)
+        backButton =  self.gameWin.makeButton(introFrame, testImage.image, "white", (lambda: self.menu(introFrame)))
         self.name = nameLabel.get()
 
     # def disclaimer(self, frame):
