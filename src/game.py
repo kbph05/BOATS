@@ -21,8 +21,8 @@ class Game:
         # frame array so that all frames can be destroyed
 
         titleFrame = self.gameWin.makeFrame(1300, 1300)
-        letter1 = image.Image('a.png')
-        letter2 = image.Image('c.png')
+        letter1 = image.Image('uppercase_b.png')
+        letter2 = image.Image('uppercase_e.png')
 
         letter1.drawImage(titleFrame, letter1.image, "pink", "left")
         letter2.drawImage(titleFrame, letter2.image, "pink", "left")
@@ -38,7 +38,7 @@ class Game:
         self.gameWin.destroyFrames() # destroy the menu frame
 
         settingsFrame = self.gameWin.makeFrame(1300, 1300)
-        letter1 = image.Image('a.png')
+        letter1 = image.Image('uppercase_j.png')
 
         audioButton = self.gameWin.makeButton(settingsFrame, letter1.image, "white", (lambda: self.settings(settingsFrame))) # command will be different
         musicButton = self.gameWin.makeButton(settingsFrame, letter1.image, "white", (lambda: self.settings(settingsFrame))) # command will be different
@@ -50,7 +50,7 @@ class Game:
         self.gameWin.destroyFrames() # destroy the menu frame
 
         introFrame = self.gameWin.makeFrame(1300, 1000)
-        testImage = image.Image('a.png')
+        testImage = image.Image('uppercase_h.png')
 
         nameLabel = self.gameWin.makeLabel(introFrame, "What is your name?", "pink", "top", 20)
         # startButton = self.gameWin.makeButton(introFrame, testImage.image, "white", (lambda: self.disclaimer(introFrame)))
@@ -58,20 +58,34 @@ class Game:
         backButton =  self.gameWin.makeButton(introFrame, testImage.image, "white", (lambda: self.menu(introFrame)))
         self.name = nameLabel.get()
 
-    # def disclaimer(self, frame):
 
-    #     frame.destroy() # destroy the intro framk
 
-    #     disclaimerFrame = self.gameWin.makeFrame(1300, 1300)
-    #     testImage = image.Image(self.alphabet[1])
+    ############# GAME WINDOWS ###############
 
-    #     disclaimerLabel = self.gameWin.makeLabel(disclaimerFrame, "**TEST GAME**\n This is a test game for the Choose Your Own Adventure game."
-    #     "\nIt is not the final game and is only for testing purposes.\nThe final game will have a proper storyline, choices, dialogs, and character "
-    #     "animations.\n\n**CUTSCENE HERE**\n\nPress Enter to continue!", "pink", "top", 20)
-    #     continueButton = self.gameWin.makeButton(disclaimerFrame, testImage.image , "white", (lambda: self.stage1(disclaimerFrame)))
+    def disclaimer(self, frame):
+
+        self.gameWin.destroyFrames() # destroy the intro frame
+
+        disclaimerFrame = self.gameWin.makeFrame(1300, 1300)
+        testImage = image.Image('uppercase_f.png')
+
+        disclaimerLabel = self.gameWin.makeLabel(disclaimerFrame, "**TEST GAME**\n This is a test game for the Choose Your Own Adventure game."
+        "\nIt is not the final game and is only for testing purposes.\nThe final game will have a proper storyline, choices, dialogs, and character "
+        "animations.\n\n**CUTSCENE HERE**\n\nPress Enter to continue!", "pink", "top", 20)
+
+        continueButton = self.gameWin.makeButton(disclaimerFrame, testImage.image , "white", (lambda: self.stage1(disclaimerFrame)))
     
+
+    def backstory(self, frame):
+        '''
+        
+
+        '''
+
+    ############## IMPORTS ###############
+
     def importAlphabet(self, alphabet):
-        alphabetFont = ["a.png", "c.png"]
+        alphabetFont = ["uppercase_f.png", "uppercase_e.png"]
         for i, letter in enumerate(alphabetFont):
             alphabet[i] = image.Image(alphabetFont[i])
         return alphabet
