@@ -1,4 +1,4 @@
-<!-- ## BACKSTORY
+## BACKSTORY
 
 *knock knock knock....*
 
@@ -93,7 +93,7 @@ If you say anything about this interaction, im destroying the machine.
 
 **space**
 
-#
+
 *fade then cue title intro*
 
 **BOATS**
@@ -101,6 +101,7 @@ If you say anything about this interaction, im destroying the machine.
 a game by Kirstin Horvat
 
 *fade*
+
 ## SCENE 1: INTRO
 
 ## CLASSES SCENES
@@ -114,20 +115,16 @@ a game by Kirstin Horvat
     - if skipping classes, more likely to fall out of UFS first year, more likely to go to a college next semester and still see Tim.
 - dining hall:
     - if sitting downstairs, more likely to meet new poeple
-        - more likely to meet Ayesha sooner
-    - if sitting alone upstairs or for less time, then
+        - more likely to meet Alena sooner
 
 
 ### Spring 2024
-### Summer 2024
 
-### SECOND YEAR
+
+# SECOND YEAR
 
 ### Fall 2024
 ### Spring 2025
-
-
-## 
 
 
 
